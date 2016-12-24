@@ -1,0 +1,6 @@
+name: DevKit
+main: info.malignantshadow.devkit.DevKit
+version: 1.0.0
+description: A collection of toys for the use of developers
+author: MalignantShadow
+depend: [ShadowAPI]
