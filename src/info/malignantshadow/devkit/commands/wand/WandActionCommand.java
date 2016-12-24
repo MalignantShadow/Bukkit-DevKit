@@ -1,4 +1,4 @@
-package info.malignantshadow.devkit.commands;
+package info.malignantshadow.devkit.commands.wand;
 
 import java.util.List;
 

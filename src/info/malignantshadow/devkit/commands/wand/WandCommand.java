@@ -1,4 +1,4 @@
-package info.malignantshadow.devkit.commands;
+package info.malignantshadow.devkit.commands.wand;
 
 import info.malignantshadow.api.bukkit.commands.BukkitCommandSender;
 import info.malignantshadow.api.bukkit.selectors.BukkitSelector;
