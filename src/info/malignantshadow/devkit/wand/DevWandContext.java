@@ -121,8 +121,8 @@ public class DevWandContext implements ConfigSerializable {
 		return addToSelection(null, e);
 	}
 	
-	public boolean addToSelection(Player owner, Entity e) {
-		if (e == null || (!_includeSelf && e.equals(owner)) || _selection.contains(e.getType(), e))
+	public boolean addToSelection(Player caster, Entity e) {
+		if (e == null || (caster != null && !_includeSelf && e instanceof Player && caster.getUniqueId().equals(((Player) e).getUniqueId())) || _selection.contains(e.getType(), e))
 			return false;
 		
 		_selection.add(e.getType(), e);
@@ -130,9 +130,13 @@ public class DevWandContext implements ConfigSerializable {
 	}
 	
 	public int addToSelection(List<Entity> entities) {
+		return addToSelection(null, entities);
+	}
+	
+	public int addToSelection(Player caster, List<Entity> entities) {
 		int count = 0;
 		for (Entity e : entities)
-			if (addToSelection(e))
+			if (addToSelection(caster, e))
 				count++;
 			
 		return count;

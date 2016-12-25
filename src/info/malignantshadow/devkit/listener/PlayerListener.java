@@ -92,7 +92,7 @@ public class PlayerListener implements Listener {
 				clearIfNeeded(selMode, player, wand);
 				
 				boolean add = selMode == DevWand.SEL_ADD_SELECTOR || selMode == DevWand.SEL_SET_SELECTOR;
-				int count = (add ? wandContext.addToSelection(selected) : wandContext.removeFromSelection(selected));
+				int count = (add ? wandContext.addToSelection(player, selected) : wandContext.removeFromSelection(selected));
 				if (count > 0)
 					BukkitMessages.sendMessage(player, String.format("&e%d &aEntit%s %s.", count, count > 1 ? "ies" : "y", add ? "added" : "removed"));
 				else if (wandContext.isVerbose()) //if nothing happened, say so; but only if the wand is verbose
