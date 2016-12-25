@@ -138,6 +138,7 @@ public class DevWand {
 	
 	public DevWand(BukkitPlayer owner) {
 		_owner = owner;
+		_context = new DevWandContext();
 	}
 	
 	public ConfigSection saveContext(String name) {
