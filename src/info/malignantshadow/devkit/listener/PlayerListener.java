@@ -78,6 +78,10 @@ public class PlayerListener implements Listener {
 				Location target = new BukkitPlayer(player).getTargetLocation();
 				BukkitSelector selector = wandContext.getSelector();
 				if (selector == null) {
+					if (wand.getContext().isVerbose())
+						BukkitMessages.sendMessage(player, "&eYou have no selector set");
+					
+					return;
 				}
 				
 				Location prevRef = selector.getReferencePoint();
