@@ -20,9 +20,9 @@ public class LightningAction extends DevWandAction {
 			return;
 		
 		if (effect)
-			location.getWorld().strikeLightning(location);
-		else
 			location.getWorld().strikeLightningEffect(location);
+		else
+			location.getWorld().strikeLightning(location);
 	}
 	
 	public static void self(CommandContext context, DevWand wand) {
