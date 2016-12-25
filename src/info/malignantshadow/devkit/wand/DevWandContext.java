@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 
 import info.malignantshadow.api.bukkit.selectors.BukkitSelector;
 import info.malignantshadow.api.commands.CommandContext;
@@ -117,7 +118,11 @@ public class DevWandContext implements ConfigSerializable {
 	}
 	
 	public boolean addToSelection(Entity e) {
-		if (e == null || _selection.contains(e.getType(), e))
+		return addToSelection(null, e);
+	}
+	
+	public boolean addToSelection(Player owner, Entity e) {
+		if (e == null || (!_includeSelf && e.equals(owner)) || _selection.contains(e.getType(), e))
 			return false;
 		
 		_selection.add(e.getType(), e);
