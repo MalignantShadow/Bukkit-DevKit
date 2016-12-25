@@ -77,6 +77,9 @@ public class PlayerListener implements Listener {
 			if (selMode == DevWand.SEL_ADD_SELECTOR || selMode == DevWand.SEL_REMOVE_SELECTOR || selMode == DevWand.SEL_SET_SELECTOR) {
 				Location target = new BukkitPlayer(player).getTargetLocation();
 				BukkitSelector selector = wandContext.getSelector();
+				if (selector == null) {
+				}
+				
 				Location prevRef = selector.getReferencePoint();
 				selector.setReferencePoint(target);
 				List<Entity> selected = selector.select(player);
