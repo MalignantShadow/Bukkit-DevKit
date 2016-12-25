@@ -43,6 +43,9 @@ public class FireAction extends DevWandAction {
 	
 	public static void target(CommandContext context, DevWand wand) {
 		Number radius = (Number) context.get("radiusOrTime");
+		if (radius == null)
+			radius = 1;
+		
 		Location target = wand.getOwner().getTargetLocation().getBlock().getRelative(wand.getOwner().getTargetFace()).getLocation();
 		double r = radius.doubleValue();
 		int ri = radius.intValue();
