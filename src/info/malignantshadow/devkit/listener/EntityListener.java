@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 
@@ -12,7 +13,7 @@ import info.malignantshadow.devkit.wand.DevWand;
 
 public class EntityListener implements Listener {
 	
-	@EventHandler(ignoreCancelled = true)
+	@EventHandler(ignoreCancelled = true, priority = EventPriority.LOWEST)
 	public void onEntityDeath(EntityDeathEvent event) {
 		LivingEntity e = event.getEntity();
 		if (e.getType() == EntityType.PLAYER)
