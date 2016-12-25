@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import info.malignantshadow.api.bukkit.players.BukkitPlayer;
@@ -34,7 +35,8 @@ public class LaunchAction extends DevWandAction {
 	}
 	
 	public static void self(CommandContext context, DevWand wand) {
-		wand.getOwner().getHandleThen((handle) -> launch(handle, null, handle.getLocation().getDirection(), (Integer) context.get("power")));
+		Player handle = wand.getOwner().getHandle();
+		launch(handle, null, handle.getLocation().getDirection(), (Integer) context.get("power"));
 	}
 	
 	//launch selection at looking direction
