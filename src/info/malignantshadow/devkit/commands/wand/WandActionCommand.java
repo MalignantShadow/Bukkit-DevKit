@@ -95,6 +95,7 @@ public class WandActionCommand {
 		try {
 			DevWandAction action = (DevWandAction) context.get("action");
 			CommandContext actionContext = action.createContext(context.getSender(), context.getInputFor("action"), context.getExtra());
+			actionContext.setData(DevWand.K_WAND, wand);
 			if (context.getCommand().getName().startsWith("add") && context.hasInputFor("index"))
 				wandContext.addAction((Integer) context.get("index"), actionContext);
 			else if (context.getCommand().getName().startsWith("set") && context.hasInputFor("index"))

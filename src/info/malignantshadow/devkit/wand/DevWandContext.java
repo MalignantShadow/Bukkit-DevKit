@@ -181,7 +181,6 @@ public class DevWandContext implements ConfigSerializable {
 		if (action == null)
 			return false;
 		
-		action.setData(DevWand.K_WAND, this);
 		if (index <= 0)
 			_actions.add(0, action);
 		else if (index >= _actions.size())
