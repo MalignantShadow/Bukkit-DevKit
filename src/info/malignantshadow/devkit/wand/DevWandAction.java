@@ -11,6 +11,7 @@ import info.malignantshadow.api.util.StringUtil;
 import info.malignantshadow.api.util.arguments.Argument;
 import info.malignantshadow.devkit.DevKit;
 import info.malignantshadow.devkit.wand.action.DelayAction;
+import info.malignantshadow.devkit.wand.action.ExplodeAction;
 import info.malignantshadow.devkit.wand.action.LaunchAction;
 import info.malignantshadow.devkit.wand.action.LightningAction;
 import info.malignantshadow.devkit.wand.action.TeleportAction;
@@ -53,6 +54,7 @@ public class DevWandAction extends Command {
 		ACTIONS = new BukkitCommandManager()
 			.withDefaultColors(DevKit.HELP_COLORS)
 			.push(new DelayAction())
+			.push(new ExplodeAction())
 			.push(new LaunchAction())
 			.push(new LightningAction())
 			.push(new TeleportAction())
