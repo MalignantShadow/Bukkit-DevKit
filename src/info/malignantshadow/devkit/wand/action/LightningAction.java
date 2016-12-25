@@ -6,6 +6,7 @@ import java.util.Random;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
+import info.malignantshadow.api.bukkit.players.BukkitWorld;
 import info.malignantshadow.api.commands.CommandContext;
 import info.malignantshadow.api.util.arguments.Argument;
 import info.malignantshadow.api.util.arguments.ArgumentTypes;
@@ -16,8 +17,17 @@ import info.malignantshadow.devkit.wand.DevWandContext;
 public class LightningAction extends DevWandAction {
 	
 	public static void strike(Location location, boolean effect) {
+		strike(location, effect, true);
+	}
+	
+	public static void strike(Location location, boolean effect, boolean highestY) {
 		if (location == null || location.getWorld() == null)
 			return;
+		
+		if (highestY) {
+			location = BukkitWorld.getHighestNonAirLocation(location);
+			location.setY(Math.min(location.getWorld().getMaxHeight(), location.getY() + 1));
+		}
 		
 		if (effect)
 			location.getWorld().strikeLightningEffect(location);
