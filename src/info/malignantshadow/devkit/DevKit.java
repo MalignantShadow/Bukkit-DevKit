@@ -33,12 +33,12 @@ public class DevKit extends ShadowPlugin {
 			
 			@Override
 			public ChatColor getArgsColor() {
-				return ChatColor.YELLOW;
+				return ChatColor.GOLD;
 			}
 			
 			@Override
 			public ChatColor getAliasColor() {
-				return ChatColor.GOLD;
+				return ChatColor.YELLOW;
 			}
 			
 			@Override
