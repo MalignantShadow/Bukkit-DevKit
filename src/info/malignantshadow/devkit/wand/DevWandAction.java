@@ -57,8 +57,7 @@ public class DevWandAction extends Command {
 			.push(new ExplodeAction())
 			.push(new LaunchAction())
 			.push(new LightningAction())
-			.push(new TeleportAction())
-			.withHelpCommand("??");
+			.push(new TeleportAction());
 	}
 	
 	public static void register(DevWandAction action) {
