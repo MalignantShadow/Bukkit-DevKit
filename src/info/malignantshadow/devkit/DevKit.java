@@ -242,7 +242,7 @@ public class DevKit extends ShadowPlugin {
 							.withHelpCommand()))
 					
 					//wand verbose [state]
-					.push(new BukkitCommand("verbose", "Set the verbose state of your wand", "v")
+					.push(new BukkitCommand("verbose", "Set the verbose state of your wand (Default: false)", "v")
 						.withArg(new Argument("state", "The new verbose state", false)
 							.withAcceptedTypes(ArgumentTypes.BOOLEAN)
 							.thatMayBeNull()))
