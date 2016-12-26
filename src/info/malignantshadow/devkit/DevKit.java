@@ -161,6 +161,11 @@ public class DevKit extends ShadowPlugin {
 						.withRequiredPermissions(DevWand.PERMISSION)
 						.withHandler(WandCommand::clear))
 					
+					//wand include-self [boolean]
+					.push(new BukkitCommand("include-self", "Include or exclude youself for selections. (Default: false)", "is")
+						.withRequiredPermissions(DevWand.PERMISSION)
+						.withHandler(WandCommand::includeSelf))
+					
 					//wand mode <mode>
 					.push(new BukkitCommand("mode", "Set the selection mode", "m")
 						.withRequiredPermissions(DevWand.PERMISSION)

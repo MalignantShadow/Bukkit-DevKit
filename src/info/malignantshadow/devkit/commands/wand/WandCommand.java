@@ -40,6 +40,23 @@ public class WandCommand {
 		context.print("Wand selection and actions cleared.");
 	};
 	
+	//wand include-self [boolean]
+	public static void includeSelf(CommandContext context) {
+		DevWand wand = DevWand.getWand((BukkitCommandSender) context.getSender());
+		if (wand == null)
+			return;
+		
+		//view state if not given
+		Boolean state = (Boolean) context.get("state");
+		if (state == null) {
+			context.print("Your wand is %s including yourself in selections.", wand.getContext().shouldIncludeSelf() ? "" : "not");
+			return;
+		}
+		
+		wand.getContext().setIncludeSelf(state);
+		context.print("Your wand is now %s including yourself in selections.", state ? "" : "not");
+	}
+	
 	//wand selector <selector>
 	public static void selector(CommandContext context) {
 		DevWand wand = DevWand.getWand((BukkitCommandSender) context.getSender());
