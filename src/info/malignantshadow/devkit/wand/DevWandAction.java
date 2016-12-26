@@ -12,7 +12,7 @@ import info.malignantshadow.api.util.arguments.Argument;
 import info.malignantshadow.devkit.DevKit;
 import info.malignantshadow.devkit.wand.action.DelayAction;
 import info.malignantshadow.devkit.wand.action.ExplodeAction;
-import info.malignantshadow.devkit.wand.action.FireAction;
+import info.malignantshadow.devkit.wand.action.FireStateAction;
 import info.malignantshadow.devkit.wand.action.LaunchAction;
 import info.malignantshadow.devkit.wand.action.LightningAction;
 import info.malignantshadow.devkit.wand.action.TeleportAction;
@@ -56,7 +56,10 @@ public class DevWandAction extends Command {
 			.withDefaultColors(DevKit.HELP_COLORS)
 			.push(new DelayAction())
 			.push(new ExplodeAction())
-			.push(new FireAction())
+			.push(new FireStateAction(false, "extinguish", "Extinguish blocks or entities",
+				"For 'target' mode - The radius of the blocks to extinguish (Default: %d). Others: The amount of time an entity should stop being on fire", "ext"))
+			.push(new FireStateAction(true, "fire", "Set fire to blocks or entities",
+				"For 'target' mode - The radius of the blocks to set aflame (Default: %d). Others: The amount of time an entity should be on fire"))
 			.push(new LaunchAction())
 			.push(new LightningAction())
 			.push(new TeleportAction());
