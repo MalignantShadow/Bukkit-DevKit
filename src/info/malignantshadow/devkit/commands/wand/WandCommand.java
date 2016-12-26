@@ -37,7 +37,7 @@ public class WandCommand {
 			return;
 		
 		wand.getContext().clear();
-		context.print("Wand cleared.");
+		context.print("Wand selection and actions cleared.");
 	};
 	
 	//wand selector <selector>
