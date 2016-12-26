@@ -78,10 +78,14 @@ public class WandCommand {
 			return;
 		
 		//view state if not given
-		if (!context.hasInputFor("state")) {
+		Boolean verbose = (Boolean) context.get("state");
+		if (verbose == null) {
 			context.print("Your wand is %s verbose.", wand.getContext().isVerbose() ? "" : "not");
 			return;
 		}
+		
+		wand.getContext().setVerbose(verbose);
+		context.print("Your wand is not %s verbose", verbose ? "" : "not");
 	};
 	
 	private static void doSetState(CommandContext context, DevWand wand, boolean state) {
