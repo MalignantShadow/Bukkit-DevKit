@@ -85,7 +85,7 @@ public class WandCommand {
 		}
 		
 		wand.getContext().setVerbose(verbose);
-		context.print("Your wand is not %s verbose", verbose ? "" : "not");
+		context.print("Your wand is now %s verbose", verbose ? "" : "not");
 	};
 	
 	private static void doSetState(CommandContext context, DevWand wand, boolean state) {
