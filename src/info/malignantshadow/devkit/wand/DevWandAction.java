@@ -104,13 +104,12 @@ public class DevWandAction extends Command {
 	}
 	
 	public DevWandAction withModeArg() {
-		withModeArg(true, MODE_TYPE);
-		return this;
+		return withModeArg(true);
 	}
 	
-	public DevWandAction withModeArg(boolean required, Argument.Type<?>... types) {
+	public DevWandAction withModeArg(boolean required) {
 		withArg(new Argument("mode", "The action's mode", required)
-			.withAcceptedTypes(types));
+			.withAcceptedTypes(MODE_TYPE));
 		return this;
 	}
 	
