@@ -16,10 +16,13 @@ import info.malignantshadow.devkit.wand.DevWandAction;
 
 public class FireStateAction extends DevWandAction {
 	
+	public static final int DEF_RADIUS = 1;
+	public static final int DEF_TIME = 3;
+	
 	private static double getTime(CommandContext context) {
 		Number time = (Integer) context.get("radiusOrTime");
 		if (time == null)
-			time = 3;
+			time = DEF_TIME;
 		
 		return time.doubleValue();
 	}
@@ -33,7 +36,7 @@ public class FireStateAction extends DevWandAction {
 		_testType = state ? Material.AIR : Material.FIRE;
 		_replaceType = state ? Material.FIRE : Material.AIR;
 		withModeArg();
-		withArg(new Argument("radiusOrTime", "radius | time", String.format(argDesc, 1, 3), false)
+		withArg(new Argument("radiusOrTime", "radius | time", String.format(argDesc, DEF_RADIUS, DEF_TIME), false)
 			.withAcceptedTypes(ArgumentTypes.NUMBER)
 			.thatMayBeNull());
 		withModeHandlers(this::self, this::selected, this::target, this::random);
@@ -59,7 +62,7 @@ public class FireStateAction extends DevWandAction {
 	public void target(CommandContext context, DevWand wand) {
 		Number radius = (Number) context.get("radiusOrTime");
 		if (radius == null)
-			radius = 1;
+			radius = DEF_RADIUS;
 		
 		Object[] lastTargets = wand.getOwner().getLastTwoTargets(true, true);
 		Location target = null;
