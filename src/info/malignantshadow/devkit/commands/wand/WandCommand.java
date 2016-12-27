@@ -24,11 +24,18 @@ public class WandCommand {
 		setState(context, false);
 	}
 	
-	//wand
+	//wand ...
 	public static void toggle(CommandContext context) {
 		DevWand wand = DevWand.getWand((BukkitCommandSender) context.getSender());
 		if (wand == null)
 			return;
+		
+		// only proceed in this case of /wand
+		// otherwise send unknown sub-command message
+		if (context.getExtra().length > 0) {
+			context.printErr("Unknown sub-command: &e%s", context.getExtra()[0]);
+			return;
+		}
 		
 		doSetState(context, wand, !wand.getContext().getState());
 	};
