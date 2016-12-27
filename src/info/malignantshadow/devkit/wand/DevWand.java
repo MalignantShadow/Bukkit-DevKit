@@ -188,7 +188,7 @@ public class DevWand {
 		}
 		
 		if (finished && _context.isVerbose())
-			_owner.sendMessage("&Done.");
+			_owner.sendMessage("&aDone.");
 	}
 	
 }
