@@ -26,7 +26,7 @@ public class LightningAction extends DevWandAction {
 		
 		if (highestY) {
 			location = BukkitWorld.getHighestNonAirLocation(location);
-			location.setY(Math.min(location.getWorld().getMaxHeight(), location.getY() + 1));
+			location.setY(Math.min(location.getWorld().getMaxHeight(), location.getY()));
 		}
 		
 		if (effect)
