@@ -68,19 +68,20 @@ public class DevKit extends ShadowPlugin {
 	
 	private void registerCommands() {
 		new BukkitCommandManager(this) //Turn the Spigot
-			.withDefaultColors(HELP_COLORS)
 			
 			//wand
 			.push(new BukkitCommand("wand", "Toggle your wand's on/off state", "w")
 				.withRequiredPermissions(DevWand.PERMISSION)
 				.withHandler(WandCommand::toggle)
 				.withSubCommands(new BukkitCommandManager()
+					.withDefaultColors(HELP_COLORS)
 					
 					//wand action
 					.push(new BukkitCommand("actions", "View your wand's activation sequence", "a")
 						.withRequiredPermissions(DevWand.PERMISSION)
 						.withHandler(WandActionCommand::view)
 						.withSubCommands(new BukkitCommandManager()
+							.withDefaultColors(HELP_COLORS)
 							
 							//wand actions activate <action> [args]:extra
 							.push(new BukkitCommand("activate", "Activate an action without adding it to the wand", "@")
@@ -207,6 +208,7 @@ public class DevKit extends ShadowPlugin {
 						.withRequiredPermissions(DevWand.PERMISSION)
 						.withHandler(WandSelectionCommand::view)
 						.withSubCommands(new BukkitCommandManager()
+							.withDefaultColors(HELP_COLORS)
 							
 							//wand selection add <entities>
 							.push(new BukkitCommand("add", "Add entities to your wand's selection", "+")
