@@ -62,7 +62,8 @@ public class DevWandAction extends Command {
 				"For 'target' mode - The radius of the blocks to set aflame (Default: %d). Others: The amount of time an entity should be on fire"))
 			.push(new LaunchAction())
 			.push(new LightningAction())
-			.push(new TeleportAction());
+			.push(new TeleportAction())
+			.withHelpCommand("??");
 	}
 	
 	public static void register(DevWandAction action) {
