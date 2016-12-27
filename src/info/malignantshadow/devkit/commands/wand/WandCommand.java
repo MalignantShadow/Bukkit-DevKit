@@ -8,8 +8,8 @@ import info.malignantshadow.devkit.wand.DevWand;
 
 public class WandCommand {
 	
-	private static String INCLUDE_SELF_FORMAT = "Your wand is %s %scluding yourself in selections.";
-	private static String VERBOSE_FORMAT = "Your wand is %s %s verbose";
+	private static String INCLUDE_SELF_FORMAT = "Your wand is%s %scluding yourself in selections.";
+	private static String VERBOSE_FORMAT = "Your wand is%s %s verbose";
 	
 	private WandCommand() {
 	}
@@ -59,12 +59,12 @@ public class WandCommand {
 		//view state if not given
 		Boolean state = (Boolean) context.get("state");
 		if (state == null) {
-			context.print(INCLUDE_SELF_FORMAT, "currently", wand.getContext().shouldIncludeSelf() ? "in" : "ex");
+			context.print(INCLUDE_SELF_FORMAT, " currently", wand.getContext().shouldIncludeSelf() ? "in" : "ex");
 			return;
 		}
 		
 		wand.getContext().setIncludeSelf(state);
-		context.print(INCLUDE_SELF_FORMAT, "now", state ? "in" : "ex");
+		context.print(INCLUDE_SELF_FORMAT, " now", state ? "in" : "ex");
 	}
 	
 	//wand selector <selector>
@@ -107,12 +107,12 @@ public class WandCommand {
 		//view state if not given
 		Boolean verbose = (Boolean) context.get("state");
 		if (verbose == null) {
-			context.print(VERBOSE_FORMAT, "currently", wand.getContext().isVerbose() ? "" : "not");
+			context.print(VERBOSE_FORMAT, " currently", wand.getContext().isVerbose() ? "" : "not");
 			return;
 		}
 		
 		wand.getContext().setVerbose(verbose);
-		context.print(VERBOSE_FORMAT, "now", verbose ? "" : "not");
+		context.print(VERBOSE_FORMAT, " now", verbose ? "" : "not");
 	};
 	
 	private static void doSetState(CommandContext context, DevWand wand, boolean state) {
