@@ -170,6 +170,7 @@ public class DevWand {
 		if (index < 0 || index >= actions.size())
 			return;
 		
+		boolean finished = false;
 		for (int i = index; i < actions.size(); i++) {
 			CommandContext context = actions.get(i);
 			Command cmd = context.getCommand();
@@ -180,9 +181,14 @@ public class DevWand {
 			context.dispatchSelf();
 			context.setData(K_ACTION_INDEX, null);
 			
+			finished = (i == actions.size() - 1);
+			
 			if (cmd instanceof DevWandAction && ((DevWandAction) cmd).stopsLoop())
 				return;
 		}
+		
+		if (finished && _context.isVerbose())
+			_owner.sendMessage("&Done.");
 	}
 	
 }
