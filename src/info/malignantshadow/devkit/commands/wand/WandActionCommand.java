@@ -92,20 +92,21 @@ public class WandActionCommand {
 	
 	private static void safeAdd(CommandContext context, DevWand wand) {
 		DevWandContext wandContext = wand.getContext();
-		try {
-			DevWandAction action = (DevWandAction) context.get("action");
-			CommandContext actionContext = action.createContext(context.getSender(), context.getInputFor("action"), context.getExtra());
-			actionContext.setData(DevWand.K_WAND, wand);
-			if (context.getCommand().getName().startsWith("add") && context.hasInputFor("index"))
-				wandContext.addAction((Integer) context.get("index"), actionContext);
-			else if (context.getCommand().getName().startsWith("set") && context.hasInputFor("index"))
-				wandContext.setAction((Integer) context.get("index"), actionContext);
-			else
-				wandContext.addAction(actionContext);
-			context.print("Action added: &e%s", actionContext.toString());
-		} catch (IllegalArgumentException e) {
-			context.printErr(e.getMessage());
+		DevWandAction action = (DevWandAction) context.get("action");
+		CommandContext actionContext = action.createContext(context.getSender(), context.getInputFor("action"), context.getExtra());
+		if (actionContext == null) {
+			context.printErr("Not enough arguments given");
+			return;
 		}
+		
+		actionContext.setData(DevWand.K_WAND, wand);
+		if (context.getCommand().getName().startsWith("add") && context.hasInputFor("index"))
+			wandContext.addAction((Integer) context.get("index"), actionContext);
+		else if (context.getCommand().getName().startsWith("set") && context.hasInputFor("index"))
+			wandContext.setAction((Integer) context.get("index"), actionContext);
+		else
+			wandContext.addAction(actionContext);
+		context.print("Action added: &e%s", actionContext.toString());
 	}
 	
 	private static DevWand doClear(CommandContext context) {
