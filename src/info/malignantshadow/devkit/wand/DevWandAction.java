@@ -115,9 +115,15 @@ public class DevWandAction extends Command {
 	
 	public DevWandAction withModeHandlers(BiConsumer<CommandContext, DevWand> self, BiConsumer<CommandContext, DevWand> selected,
 		BiConsumer<CommandContext, DevWand> target, BiConsumer<CommandContext, DevWand> random) {
+		String name = getName();
 		return (DevWandAction) withHandler((context) -> {
 			DevWand wand = (DevWand) context.getData(DevWand.K_WAND);
-			int mode = (Integer) context.get("mode");
+			Integer mode = (Integer) context.get("mode");
+			if (mode == null) {
+				context.printErr("Action '%s': Invalid mode: %s", name, context.getInputFor("mode"));
+				return;
+			}
+			
 			if (mode == SELF && self != null)
 				self.accept(context, wand);
 			else if (mode == SELECTED && selected != null)
