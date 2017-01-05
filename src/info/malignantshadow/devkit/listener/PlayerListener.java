@@ -14,8 +14,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import info.malignantshadow.api.bukkit.BukkitMessages;
-import info.malignantshadow.api.bukkit.players.BukkitPlayer;
+import info.malignantshadow.api.bukkit.helpers.BukkitMessages;
+import info.malignantshadow.api.bukkit.helpers.BukkitPlayer;
 import info.malignantshadow.api.bukkit.selectors.BukkitSelector;
 import info.malignantshadow.api.util.StringUtil;
 import info.malignantshadow.devkit.wand.DevWand;

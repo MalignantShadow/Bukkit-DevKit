@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import info.malignantshadow.api.bukkit.commands.BukkitCommandSender;
-import info.malignantshadow.api.bukkit.players.BukkitPlayer;
+import info.malignantshadow.api.bukkit.helpers.BukkitPlayer;
 import info.malignantshadow.api.bukkit.plugin.ShadowAPI;
 import info.malignantshadow.api.commands.Command;
 import info.malignantshadow.api.commands.CommandContext;

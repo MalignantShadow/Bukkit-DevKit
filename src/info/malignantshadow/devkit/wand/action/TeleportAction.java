@@ -6,7 +6,7 @@ import java.util.Random;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 
-import info.malignantshadow.api.bukkit.players.BukkitWorld;
+import info.malignantshadow.api.bukkit.helpers.BukkitWorld;
 import info.malignantshadow.api.commands.CommandContext;
 import info.malignantshadow.devkit.wand.DevWand;
 import info.malignantshadow.devkit.wand.DevWandAction;

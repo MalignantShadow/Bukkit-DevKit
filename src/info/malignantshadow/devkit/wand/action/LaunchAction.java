@@ -7,7 +7,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-import info.malignantshadow.api.bukkit.players.BukkitPlayer;
+import info.malignantshadow.api.bukkit.helpers.BukkitPlayer;
 import info.malignantshadow.api.commands.CommandContext;
 import info.malignantshadow.api.util.arguments.Argument;
 import info.malignantshadow.api.util.arguments.ArgumentTypes;
